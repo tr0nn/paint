@@ -1,0 +1,117 @@
+var circle;
+var color;
+
+function start(){
+    
+    frame();
+    txtfunc();
+    
+    
+    mouseDragMethod(paint);
+    
+    mouseClickMethod(color);
+}
+
+//-----------------------------------FRAME
+function frame(){
+    var rect = new Rectangle(380,400);
+    rect.setPosition(10,10);
+    add(rect);
+    var rect2 = new Rectangle(360,380);
+    rect2.setPosition(20,20);
+    rect2.setColor(Color.WHITE);
+    add(rect2);
+}
+
+//--------------------------------------PAINT
+function paint(e){
+    circle = new Circle(5);
+    circle.setColor(color);
+    circle.setPosition(e.getX(), e.getY());
+    add(circle);
+    
+    if(e.getX() < 25){
+        circle.setPosition(25, e.getY());
+    }
+    if(e.getX() > 375){
+        circle.setPosition(375, e.getY());
+    }
+    if(e.getY() < 25){
+        circle.setPosition(e.getX(),25);
+    }
+    if(e.getY() > 395){
+        circle.setPosition(e.getX(),395);
+    }
+}
+
+//------------------------------COLOR_BUTTON
+var green = new Circle(20);
+green.setPosition(30,440);
+green.setColor(Color.GREEN);
+add(green);
+
+var red = new Circle(20);
+red.setPosition(80, 440);
+red.setColor(Color.RED);
+add(red);
+
+var blue = new Circle(20);
+blue.setPosition(130,440);
+blue.setColor(Color.BLUE);
+add(blue);
+
+var yellow = new Circle(20);
+yellow.setPosition(180,440);
+yellow.setColor(Color.YELLOW);
+add(yellow);
+
+var black = new Circle(20);
+black.setPosition(230,440);
+black.setColor(Color.BLACK);
+add(black);
+
+var purple = new Circle(20);
+purple.setPosition(280,440);
+purple.setColor(Color.PURPLE);
+add(purple);
+
+
+var deletep = new Rectangle(80,40);
+deletep.setPosition(310,420);
+deletep.setColor("#DCDCDC");
+add(deletep);
+
+var txt = new Text("delete","18pt Arial");
+txt.setPosition(315,446);
+add(txt);
+
+function txtfunc(){
+    var txt2 = new Text("make your Art","10pt Arial");
+    txt2.setPosition(290,35);
+    add(txt2);
+}
+
+//-----------------------------------------------COLORS_CONTROL
+function color(e){
+    if((e.getX() > 10 && e.getX() < 50) && (e.getY() > 420 && e.getY() < 460)){
+        color = Color.GREEN;
+    }
+    if((e.getX() > 60 && e.getX() < 100) && (e.getY() > 420 && e.getY() < 460)){
+        color = Color.RED;
+    }
+    if((e.getX() > 110 && e.getX() < 150) && (e.getY() > 420 && e.getY() < 460)){
+        color = Color.BLUE;
+    }
+    if((e.getX() > 160 && e.getX() < 200) && (e.getY() > 420 && e.getY() < 460)){
+        color = Color.YELLOW;
+    }
+    if((e.getX() > 210 && e.getX() < 250) && (e.getY() > 420 && e.getY() < 460)){
+        color = Color.BLACK;
+    }
+    if((e.getX() > 260 && e.getX() < 300) && (e.getY() > 420 && e.getY() < 460)){
+        color = Color.PURPLE;
+    }
+    if((e.getX() > 310 && e.getX() < 390) && (e.getY() > 420 && e.getY() < 460)){
+        color = Color.WHITE;
+    }
+}
